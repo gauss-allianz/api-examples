@@ -4,11 +4,13 @@ import json, requests
 def module_upload(apikey, modules, api_path, delete_old_modules):
     data = {
         "apikey": apikey,
-        "delete_old_modules": delete_old_modules,
-        "modules": modules
+        "delete_old_applications": delete_old_modules,
+        "applications": modules
     }
+    
+    headers = {'X-Requested-With': 'XMLHttpRequest'}
 
-    return requests.post(api_path, data = { "json": json.dumps(data) })
+    return requests.post(api_path, data = { "json": json.dumps(data) }, headers=headers)
 
 # parse_module_list expects a module list generated
 # by the command: "module available -t"
