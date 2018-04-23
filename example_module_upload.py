@@ -6,7 +6,8 @@ api_path = "http://insert.api/path/for/upload"
 apikey = "insertYourAPIKeyHere"
 
 # example 1 - console output of module command 
-module_list = commands.getoutput("module available -t")
+# check with your modules implementation, this command works for lmod
+module_list = commands.getoutput("module -t avail")
 modules = gauss.parse_module_list(module_list)
 
 # example 2 - read input from file:
